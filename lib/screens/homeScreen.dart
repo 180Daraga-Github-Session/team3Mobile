@@ -25,12 +25,20 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: ListView.builder(
-          physics: BouncingScrollPhysics(),
-          itemBuilder: (context, index) => message(notes[index]["title"].toString(),
-              notes[index]["body"].toString(), notes[index]["date"].toString(), context),
-          itemCount: notes.length,
-        ),
+        child: Column(children: [
+          message("title", ";jfskldjfskdjfs;lkdf", "date", context),
+          message(
+              "First Note",
+              "A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic. Almost every piece of writing you do that is longer than a few sentences should be organized into paragraphs.",
+              "date",
+              context),
+          message("title", "lskdjfsdkfjskfjslk;jfskldjfskdjfs;lkdf", "date",
+              context),
+          message("title", "lskdjfsdkfjskfjslk;jfskldjfskdjfs;lkdf", "date",
+              context),
+          message("title", "lskdjfsdkfjskfjslk;jfskldjfskdjfs;lkdf", "date",
+              context),
+        ]),
       ),
     );
   }
