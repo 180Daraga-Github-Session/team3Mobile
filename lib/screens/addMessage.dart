@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team3/cubit/cubit.dart';
 
 import '../network/api.dart';
 import '../widgets/textField.dart';
@@ -11,7 +12,7 @@ class AddMessage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black12,
-        title: Text("Add Note"),
+        title: const Text("Add Note"),
       ),
       backgroundColor: Colors.black12,
       body: SafeArea(
@@ -21,11 +22,10 @@ class AddMessage extends StatelessWidget {
             buildTextField1(titleyControle, context),
             buildTextField2(bodyControle, context),
             ElevatedButton(
-                onPressed: () async {
-                  await getHttp();
-                  Navigator.pop(context);
+                onPressed: () {
+                  AppCubit.get(context).add(context);
                 },
-                child: Text("Add"))
+                child: const Text("Add"))
           ],
         )),
       ),

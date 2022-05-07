@@ -23,21 +23,23 @@ class MessageScreen extends StatelessWidget {
         backgroundColor: Colors.black12,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                body,
-                style: style1,
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                date,
-                style: style3,
-              )
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  body,
+                  style: style1,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  date,
+                  style: style3,
+                )
+              ],
+            ),
           ),
         ));
   }
