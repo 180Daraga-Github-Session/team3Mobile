@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team3/screens/addMessage.dart';
 import 'package:team3/screens/loginScreen.dart';
-import 'package:team3/style/textStyle.dart';
 import 'package:team3/widgets/messageUI.dart';
 import '../bloc/Note cubit/cubit.dart';
 import '../bloc/Note cubit/states.dart';

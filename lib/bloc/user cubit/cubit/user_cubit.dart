@@ -23,7 +23,7 @@ class UserCubit extends Cubit<UsercubitState> {
       emit(ErrorState());
     });
   }
-  
+
   logout() {
     SharedPreferencesHelper.removeData(key: 'token');
     emit(LogedoutState());

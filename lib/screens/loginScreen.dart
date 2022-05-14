@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:team3/bloc/Note%20cubit/cubit.dart';
 import 'package:team3/bloc/user%20cubit/cubit/user_cubit.dart';
 import 'package:team3/core/utils/sizeConfig.dart';
@@ -26,6 +27,9 @@ class LoginScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+                      Container(
+                        child: Lottie.asset("assets/lottie/data(1).json"),
+                      ),
 // need to be reviewed
                       buildTextField3(emailControle, context, 'Email'),
                       buildTextField3(passwordControle, context, 'Password'),

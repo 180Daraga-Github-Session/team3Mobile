@@ -21,6 +21,7 @@ class AppRoot extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
+          theme: ThemeData(primarySwatch: Colors.green),
           home: SplachScreen(),
         ));
   }

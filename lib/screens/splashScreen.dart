@@ -24,12 +24,12 @@ class _SplachScreenState extends State<SplachScreen> {
     return Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-            child: Lottie.network(
-                'https://assets4.lottiefiles.com/packages/lf20_6ubhbq5u.json')));
+          child: Lottie.asset("assets/lottie/data.json"),
+        ));
   }
 
   startTime() async {
-    var duration = const Duration(seconds: 3);
+    var duration = const Duration(seconds: 5);
     return Timer(duration, route);
   }
 

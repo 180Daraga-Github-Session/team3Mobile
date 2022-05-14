@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:team3/style/textStyle.dart';
-
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import '../screens/messageScreen.dart';
 
 Widget message(String title, String body, String date, context) {
@@ -20,14 +19,21 @@ Widget message(String title, String body, String date, context) {
       margin: const EdgeInsets.all(10),
       width: double.infinity,
       decoration: BoxDecoration(
+        boxShadow: [
+          for (var i = 0; i < 5; i++)
+            BoxShadow(
+                color: Color.fromARGB(255, 139, 254, 121),
+                blurRadius: 3.0 * i,
+                inset: true),
+        ],
         border: Border.all(
           color: Color.fromARGB(255, 109, 109, 109),
           width: 2,
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Center(
               child: Text(
