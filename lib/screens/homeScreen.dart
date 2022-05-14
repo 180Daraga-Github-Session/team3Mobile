@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team3/cubit/cubit.dart';
-import 'package:team3/cubit/states.dart';
 import 'package:team3/screens/addMessage.dart';
+import 'package:team3/screens/loginScreen.dart';
+import 'package:team3/style/textStyle.dart';
 import 'package:team3/widgets/messageUI.dart';
-
+import '../bloc/Note cubit/cubit.dart';
+import '../bloc/Note cubit/states.dart';
+import '../bloc/user cubit/cubit/user_cubit.dart';
+import '../core/utils/navigation.dart';
 import '../network/api.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,6 +32,19 @@ class HomePage extends StatelessWidget {
             elevation: 0,
             title: const Text("Notes"),
             centerTitle: true,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    UserCubit.get(context).logout();
+                    AppNavigator.customNavigator(
+                        context: context, screen: LoginScreen(), finish: false);
+                  },
+                  icon: Icon(
+                    Icons.logout_rounded,
+                    color: Colors.white,
+                    size: 26,
+                  ))
+            ],
           ),
           body: FutureBuilder<List<Data>>(
               future: getData(),

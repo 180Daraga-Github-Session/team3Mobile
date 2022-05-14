@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:team3/cubit/cubit.dart';
-
-import '../network/api.dart';
+import '../bloc/Note cubit/cubit.dart';
 import '../widgets/textField.dart';
 
 class AddMessage extends StatelessWidget {

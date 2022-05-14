@@ -1,29 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team3/cubit/cubit.dart';
-import 'package:team3/cubit/states.dart';
+import 'package:team3/network/sp-helper/cache_helper.dart';
+import 'package:team3/src/app_root.dart';
+import 'network/dio-helper/dio_service.dart';
 
-import 'screens/homeScreen.dart';
-
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesHelper.init();
+  DioHelper.init();
+  runApp(const AppRoot());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => AppCubit(),
-        child: BlocConsumer<AppCubit, AppStates>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            return const MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: 'Flutter Demo',
-                home: HomePage());
-          },
-        ));
-  }
-}
