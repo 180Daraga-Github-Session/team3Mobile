@@ -11,7 +11,7 @@ Widget message(String title, String body, String date, context) {
           MaterialPageRoute(
               builder: (context) => MessageScreen(
                     body: body,
-                    date: date,
+                    // date: date,
                     tital: title,
                   )));
     },

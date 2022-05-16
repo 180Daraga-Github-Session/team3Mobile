@@ -4,10 +4,10 @@ import 'package:team3/style/textStyle.dart';
 class MessageScreen extends StatelessWidget {
   final String tital;
   final String body;
-  final String date;
+  //final String date;
 
   const MessageScreen(
-      {Key? key, required this.tital, required this.body, required this.date})
+      {Key? key, required this.tital, required this.body})
       : super(key: key);
 
   @override
@@ -34,10 +34,10 @@ class MessageScreen extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Text(
-                  date,
-                  style: style3,
-                )
+                // Text(
+                //   date,
+                //   style: style3,
+                // )
               ],
             ),
           ),

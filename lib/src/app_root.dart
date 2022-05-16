@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:team3/bloc/Note%20cubit/cubit.dart';
+import '../bloc/Note cubit/cubit/note_cubit.dart';
 import '../bloc/user cubit/cubit/user_cubit.dart';
 import '../screens/splashScreen.dart';
 
@@ -12,7 +12,7 @@ class AppRoot extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => AppCubit(),
+            create: (context) => NoteCubit(),
           ),
           BlocProvider(
             create: (context) => UserCubit(),
@@ -20,7 +20,7 @@ class AppRoot extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'Note App',
           theme: ThemeData(primarySwatch: Colors.green),
           home: SplachScreen(),
         ));

@@ -1,0 +1,4 @@
+1- add date to the note 
+2- change the base url 
+3- handle home page 
+4- handle error message if sign in failed "acording to data return from the api"

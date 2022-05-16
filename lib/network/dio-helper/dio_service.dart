@@ -24,7 +24,6 @@ class DioHelper {
       'Content-Type': 'application/json',
       'authorization': 'Bearer $token',
 
-
     };
     return await dio.get(url, queryParameters: query);
   }

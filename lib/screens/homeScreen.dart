@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:team3/bloc/Note%20cubit/cubit/note_cubit.dart';
 import 'package:team3/screens/addMessage.dart';
 import 'package:team3/screens/loginScreen.dart';
 import 'package:team3/widgets/messageUI.dart';
-import '../bloc/Note cubit/cubit.dart';
-import '../bloc/Note cubit/states.dart';
 import '../bloc/user cubit/cubit/user_cubit.dart';
 import '../core/utils/navigation.dart';
 import '../network/api.dart';
@@ -14,7 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppCubit, AppStates>(
+    return BlocConsumer<NoteCubit, NoteState>(
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(

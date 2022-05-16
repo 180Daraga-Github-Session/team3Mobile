@@ -10,7 +10,7 @@ Widget buildTextField1(TextEditingController inputControle, context) {
   return Container(
     decoration: BoxDecoration(
       border: Border.all(
-        color: Color.fromARGB(255, 109, 109, 109),
+        color: const Color.fromARGB(255, 109, 109, 109),
         width: 2,
       ),
       borderRadius: BorderRadius.circular(5),
@@ -18,7 +18,7 @@ Widget buildTextField1(TextEditingController inputControle, context) {
     margin: const EdgeInsets.all(12),
     height: maxLines * 24.0,
     child: TextField(
-      style: TextStyle(
+      style: const TextStyle(
           color: Colors.white, fontSize: 21, fontWeight: FontWeight.w600),
       controller: inputControle,
       maxLines: maxLines,
@@ -38,7 +38,7 @@ Widget buildTextField2(TextEditingController inputControle, context) {
   return Container(
     decoration: BoxDecoration(
       border: Border.all(
-        color: Color.fromARGB(255, 109, 109, 109),
+        color: const Color.fromARGB(255, 109, 109, 109),
         width: 2,
       ),
       borderRadius: BorderRadius.circular(5),
@@ -46,7 +46,7 @@ Widget buildTextField2(TextEditingController inputControle, context) {
     margin: const EdgeInsets.all(12),
     height: maxLines * 24.0,
     child: TextField(
-      style: TextStyle(
+      style: const TextStyle(
           color: Colors.white, fontSize: 21, fontWeight: FontWeight.w600),
       controller: inputControle,
       maxLines: maxLines,
@@ -77,7 +77,7 @@ Widget buildTextField3(
       Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Color.fromARGB(255, 109, 109, 109),
+            color: const Color.fromARGB(255, 109, 109, 109),
             width: 2,
           ),
           borderRadius: BorderRadius.circular(5),
@@ -85,7 +85,7 @@ Widget buildTextField3(
         margin: const EdgeInsets.all(30),
         height: maxLines * 60.0,
         child: TextField(
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.white, fontSize: 21, fontWeight: FontWeight.w600),
           controller: inputControle,
           maxLines: maxLines,
