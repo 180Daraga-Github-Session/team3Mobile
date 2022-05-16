@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                     AppNavigator.customNavigator(
                         context: context, screen: LoginScreen(), finish: false);
                   },
-                  icon: Icon(
+                  icon:const Icon(
                     Icons.logout_rounded,
                     color: Colors.white,
                     size: 26,

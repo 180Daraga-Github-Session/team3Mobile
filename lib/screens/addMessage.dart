@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team3/bloc/Note%20cubit/cubit/note_cubit.dart';
 import 'package:team3/core/utils/navigation.dart';
+import 'package:team3/network/api.dart';
 import 'package:team3/screens/homeScreen.dart';
 import '../widgets/textField.dart';
 
@@ -28,11 +29,12 @@ class AddMessage extends StatelessWidget {
               builder: (context, state) {
                 return ElevatedButton(
                     onPressed: () {
+                      postData(titleyControle.text, bodyControle.text);
                       noteCubit.addNote(
                           title: titleyControle.value.text,
                           body: bodyControle.value.text);
                       AppNavigator.customNavigator(
-                          context: context, screen: HomePage(), finish: false);
+                          context: context, screen:const HomePage(), finish: false);
                     },
                     child: const Text("Add"));
               },

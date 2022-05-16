@@ -4,7 +4,7 @@ class DioHelper {
   static late Dio dio;
 
   static init() {
-    String baseUrl = 'https://www.medhst.com/';
+    String baseUrl = 'https://team3-github-180daraga.herokuapp.com/';
 
     dio = Dio(BaseOptions(
         baseUrl: baseUrl,
@@ -15,7 +15,7 @@ class DioHelper {
         }));
   }
 
-  static Future<Response> getData({
+  static Future<Response> getDataa({
     required String url,
     Map<String, dynamic>? query,
     String? token,
@@ -23,7 +23,6 @@ class DioHelper {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'authorization': 'Bearer $token',
-
     };
     return await dio.get(url, queryParameters: query);
   }

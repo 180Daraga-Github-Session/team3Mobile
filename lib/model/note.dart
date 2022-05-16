@@ -6,16 +6,16 @@ class Note {
   Note({this.userId, this.noteTitle, this.noteBody});
 
   Note.fromJson(Map<String, dynamic> json) {
-    userId = json['userId'];
-    noteTitle = json['noteTitle'];
-    noteBody = json['noteBody'];
+    userId = json['_id'];
+    noteTitle = json['title'];
+    noteBody = json['body'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userId'] = this.userId;
-    data['noteTitle'] = this.noteTitle;
-    data['noteBody'] = this.noteBody;
+    data['userId'] = userId;
+    data['title'] = noteTitle;
+    data['body'] = noteBody;
     return data;
   }
 }
