@@ -29,7 +29,7 @@ class AddMessage extends StatelessWidget {
               builder: (context, state) {
                 return ElevatedButton(
                     onPressed: () {
-                      postData(titleyControle.text, bodyControle.text);
+                      //postData(titleyControle.text, bodyControle.text);
                       noteCubit.addNote(
                           title: titleyControle.value.text,
                           body: bodyControle.value.text);

@@ -12,16 +12,25 @@ class UserCubit extends Cubit<UsercubitState> {
   static UserCubit get(context) => BlocProvider.of(context);
 
   User? user;
+  bool? found;
 
   login(String email, String password) {
     emit(LoadingState());
     DioHelper.postData(
         url: "user/login/",
-        data: {'email': email, 'password': password}).then((value) {
-      user = User.fromJson(value.data);
-      SharedPreferencesHelper.saveData(key: 'token', value: user!.token);
-      emit(SuccessState());
+        data: {'email': email, 'password': password}).then((token) {
+      //var jsondata = jsonDecode(token.data);
+      print('response data  : "${token.data}"');
+      if (token.extra.isNotEmpty) {
+        found = true;
+        SharedPreferencesHelper.saveData(key: 'token', value: token);
+        emit(SuccessState());
+      } else {
+        found = false;
+        emit(NotFoundState());
+      }
     }).catchError((error) {
+      print('error: ${error.toString()}');
       emit(ErrorState());
     });
   }
@@ -41,14 +50,6 @@ class UserCubit extends Cubit<UsercubitState> {
       user = User.fromJson(value.data);
       emit(SignupSuccessState());
       SharedPreferencesHelper.saveData(key: 'token', value: user!.token);
-
-/**this section is only needed if the api returns token not user****/
-      user!.firstname = firstName;
-      user!.lastname = lastName;
-      user!.email = email;
-      user!.password = password;
-/*****************************************************************/
-
     }).catchError((error) {
       emit(SignupErrorState());
     });

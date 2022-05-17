@@ -35,11 +35,12 @@ class _SplachScreenState extends State<SplachScreen> {
 
   route() {
     var token = SharedPreferencesHelper.getData(key: 'token');
-    /*if (token == null)*/
-    AppNavigator.customNavigator(
-        context: context, screen: LoginScreen(), finish: true);
-    /*else
-    AppNavigator.customNavigator(
-        context: context, screen: const HomePage(), finish: true);*/
+    if (token == null) {
+      AppNavigator.customNavigator(
+          context: context, screen: LoginScreen(), finish: true);
+    } else {
+      AppNavigator.customNavigator(
+          context: context, screen: const HomePage(), finish: true);
+    }
   }
 }

@@ -9,6 +9,8 @@ class UsercubitInitial extends UsercubitState {}
 class LoadingState extends UsercubitState {}
 class SuccessState extends UsercubitState {}
 class ErrorState extends UsercubitState {}
+class NotFoundState extends UsercubitState {}
+
 
 //signup states
 class SignupLoadingState extends UsercubitState {}

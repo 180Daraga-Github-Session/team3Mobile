@@ -36,7 +36,8 @@ class DioHelper {
     dio.options.headers = {
       'Authorization': 'Bearer $token',
     };
-    return dio.post(url, queryParameters: query, data: data);
+    print('done dio');
+    return dio.post(url,data: data, queryParameters: query);
   }
 
   static Future<Response> putData({

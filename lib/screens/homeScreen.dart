@@ -46,6 +46,8 @@ class HomePage extends StatelessWidget {
           ),
           body: FutureBuilder<List<Data>>(
               future: getData(),
+              //future: NoteCubit.getNote(),
+
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(

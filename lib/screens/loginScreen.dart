@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:team3/bloc/user%20cubit/cubit/user_cubit.dart';
 import 'package:team3/core/utils/sizeConfig.dart';
@@ -20,11 +21,11 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   String? email;
-
   String? password;
 
   @override
   Widget build(BuildContext context) {
+    UserCubit? userCubit = UserCubit.get(context);
     TextEditingController? emailControle = TextEditingController();
     TextEditingController? passwordControle = TextEditingController();
     return Scaffold(
@@ -66,9 +67,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }
                                 return null;
                               },
-                              onSaved: (value) {
+                              onChanged: (value) {
                                 setState(() {
                                   email = value;
+                                  print(email);
                                 });
                               },
                             ),
@@ -91,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }
                                 return null;
                               },
-                              onSaved: (value) {
+                              onChanged: (value) {
                                 setState(() {
                                   password = value;
                                 });
@@ -99,22 +101,35 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           Center(
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  minimumSize: Size(310, 40),
-                                ),
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    UserCubit.get(context).login(
-                                        emailControle.text,
-                                        passwordControle.text);
-                                    AppNavigator.customNavigator(
-                                        context: context,
-                                        screen: HomePage(),
-                                        finish: false);
-                                  }
-                                },
-                                child: const Text("Login")),
+                            child: BlocConsumer<UserCubit, UsercubitState>(
+                              listener: (context, state) {},
+                              builder: (context, state) {
+                                return ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      minimumSize: Size(310, 40),
+                                    ),
+                                    onPressed: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        userCubit.login(email!, password!);
+                                        if (userCubit.found!) {
+                                          AppNavigator.customNavigator(
+                                              context: context,
+                                              screen: HomePage(),
+                                              finish: false);
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                                content:
+                                                    Text('User Not Found')),
+                                          );
+                                        }
+                                      } else
+                                        print('not valid');
+                                    },
+                                    child: const Text("Login"));
+                              },
+                            ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

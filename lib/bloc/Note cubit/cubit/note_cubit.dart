@@ -15,8 +15,19 @@ class NoteCubit extends Cubit<NoteState> {
   addNote({String? title, String? body}) {
     emit(NoteLoadingState());
     
-    DioHelper.postData(url: "note/", data: {'title': title, 'body': body ,}, token: SharedPreferencesHelper.getData(key: 'token'))
+    DioHelper.postData(url: "note/", data: {'title': title, 'body': body }, token: SharedPreferencesHelper.getData(key: 'token'))
         .then((value) {
+      emit(NoteSuccessState());
+    }).catchError((error) {
+      emit(NoteErrorState());
+    });
+  }
+  getNotes(int userId) {
+    emit(NoteLoadingState());
+    
+    DioHelper.getDataa(url: "note/",query: {'userId':userId}, token: SharedPreferencesHelper.getData(key: 'token'))
+        .then((value) {
+      
       emit(NoteSuccessState());
     }).catchError((error) {
       emit(NoteErrorState());

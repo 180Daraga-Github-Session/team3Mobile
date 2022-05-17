@@ -146,6 +146,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 userCubit.signup(
+                                   
                                     email: email,
                                     password: password,
                                     firstName: firstName,

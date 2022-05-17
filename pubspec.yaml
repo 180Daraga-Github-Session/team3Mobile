@@ -49,6 +49,9 @@ dependencies:
   # toast
   fluttertoast: ^8.0.8
 
+  # unique id genirator
+  uuid: 3.0.6
+
   #splash
   flutter_native_splash: ^2.1.6
 
